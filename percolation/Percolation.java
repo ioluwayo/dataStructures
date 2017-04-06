@@ -1,4 +1,4 @@
-import edu.princeton.cs.algs4.WeightedQuickUnionUF;
+
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
@@ -6,7 +6,7 @@ public class Percolation {
     private int topIndex = 0; // the extra cell at the top.
     private int bottomIndex; // the extra cell at the bottom.
     private boolean[][] isOpenSite; // size by size matrix.[0][0] = row 1,col 1
-    private WeightedQuickUnionUF qf; // union-find object of size*size + 2
+    private WeightedQuickUnion qf; // union-find object of size*size + 2
     private int size;
     private int count =0;
     
@@ -21,7 +21,7 @@ public class Percolation {
             this.size = size;
             this.bottomIndex = size*size + 1; // last index in qf object
             this.isOpenSite = new boolean[size][size];
-            qf = new WeightedQuickUnionUF(size*size+2); //+2 for extra top and bottom 
+            qf = new WeightedQuickUnion(size*size+2); //+2 for extra top and bottom 
         }
     }
     
