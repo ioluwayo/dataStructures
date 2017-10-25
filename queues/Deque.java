@@ -18,7 +18,7 @@ public class Deque<Item> implements Iterable<Item> {
         
     }
     /**
-     * True is deque is empty.
+     * True if deque is empty.
      * i.e first  == null;
      */
     public boolean isEmpty () {
@@ -35,7 +35,12 @@ public class Deque<Item> implements Iterable<Item> {
      */
     public void addFirst (Item item) {
         if (item == null) throw new NullPointerException();
-        
+        // create the node. save the oldfirst somewhere.
+        // if the strcure was empty, just do the regs. last = first
+        //null<-firt->null
+        //else oldfirst.prev = newfirst.
+        //new first.prev = null
+        //newfirst.next = oldfirst.
         Node oldFirst = this.first;
         this.first = new Node();
         this.first.item = item;
@@ -49,7 +54,7 @@ public class Deque<Item> implements Iterable<Item> {
             this.first.next = oldFirst;
 
         }
-        this.first.prev = null;
+        this.first.prev = null; // previous is always null.
         size++; //increment size counter whenever we successfully add an element
     }
     /**
